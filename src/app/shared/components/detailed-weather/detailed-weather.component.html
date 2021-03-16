@@ -1,0 +1,26 @@
+<span class="badge badge-ligth large mb-4">{{ "Agora" | uppercase }}</span>
+<div class="weather-details">
+  <div class="weather-icon">
+    <img [src]="weatherIcon" />
+    <h6>{{ weather.description }}</h6>
+  </div>
+  <div class="weather-temp ml-2">
+    <h3>{{ weather.temp }} {{ unitSymbol }}</h3>
+    <h6>Sensação térmica: {{ weather.feelsLike }} {{ unitSymbol }}</h6>
+  </div>
+
+  <div class="weather-misc">
+    <h6>Humidade: {{ weather.humidity }}%</h6>
+    <h6>Velocidade do vento: {{ weather.wind.speed }} m/s</h6>
+  </div>
+  <div *ngIf="timeZone">
+    <h6 class="align-center mb-3"  >
+      <span class="material-icons pr-2 color-yellow"> light_mode </span
+      >{{ unixToHourMinute(weather.sunrise) }}
+    </h6>
+    <h6 class="align-center ">
+      <span class="material-icons pr-2"> nightlight </span>
+      {{ unixToHourMinute(weather.sunset) }}
+    </h6>
+  </div>
+</div>

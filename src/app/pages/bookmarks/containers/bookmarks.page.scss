@@ -1,0 +1,18 @@
+
+.lista{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lista-item{
+  padding: 1%;
+  border-radius: 10px;
+  z-index: 4;
+  background-color: transparent;
+  border: 1pt solid gray;
+}
+.xl{
+  font-size: xx-large;
+  vertical-align: middle;
+  cursor: pointer;
+}

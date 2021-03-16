@@ -1,0 +1,27 @@
+<div class="card card-weather p-4">
+  <span class="badge badge-ligth large">{{ date | uppercase }}</span>
+
+  <div>
+    <div class="weather-icon">
+      <img [src]="icon">
+      <h6 class="margin-10">{{ weather.description }}</h6>
+    </div>
+
+    <div>
+      <h4>{{ weather.minTemp }} {{ unitSymbol  }} - {{ weather.maxTemp }} {{ unitSymbol }}</h4>
+      <h6>Humidade: {{ weather.humidity }} %</h6>
+      <h6>Velocidade do vento: {{ weather.wind.speed }} m/s</h6>
+    </div>
+
+    <div>
+      <h6 class="align-center mb-3">
+        <span class="material-icons pr-2 color-yellow"> light_mode </span
+        >{{ unixToHourMinute(weather.sunrise) }}
+      </h6>
+      <h6 class="align-center ">
+        <span class="material-icons pr-2"> nightlight </span>
+        {{ unixToHourMinute(weather.sunset) }}
+      </h6>
+    </div>
+  </div>
+</div>

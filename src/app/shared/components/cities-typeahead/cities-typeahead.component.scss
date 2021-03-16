@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+$hint: #FAF8F8;
+$turqoise: #17EAD9;
+$cornflower-blue: #6078EA;
+$tundora: #4B4848;
+$electric-violet: #7C26F8;
+$snappy:  cubic-bezier(0.694,  0.048, 0.335, 1.000);
+
+
+
+::selection {
+  background: $cornflower-blue;
+  color: white;
+  text-shadow: none;
+}
+
+::-webkit-selection{
+  background: $cornflower-blue;
+  color: white;
+  text-shadow: none;
+}
+
+.field-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 330px;
+  height: 40px;
+}
+
+.icons-container {
+  position: absolute;
+  top: 11px;
+  right: -25px;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+}
+
+.icon-search {
+  position: relative;
+  top: 5px;
+  left: 8px;
+  width: 50%;
+  height: 50%;
+  opacity: 1;
+  border-radius: 50%;
+  border: 3px solid mix($cornflower-blue, white, 35%);
+  transition: opacity 0.25s ease, transform 0.43s $snappy;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    right: -2px;
+    width: 4px;
+    border-radius: 3px;
+    transform: rotate(-45deg);
+    height: 10px;
+    background-color: mix($cornflower-blue, white, 35%);
+  }
+}
+
+.field {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px rgba($tundora, 0.1);
+  transition: all 0.4s ease;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 9px 20px rgba($tundora, 0.3);
+    + .icons-container {
+      .icon-close {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .icon-search {
+        opacity: 0;
+        transform: translateX(200%);
+      }
+    }
+  }
+}

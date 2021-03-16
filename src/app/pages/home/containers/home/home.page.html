@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="search-container">
+    <div class="form-group">
+      <app-cities-typeahead [formControl]="searchControlAutoComplete"></app-cities-typeahead>
+    </div>
+  </div>
+
+  <app-loader *ngIf="loadingWeather$ | async"></app-loader>
+
+  <div
+    *ngIf="!(loadingWeather$ | async) && !(errorWeather$ | async) && !!(cityWeather)"
+  >
+    <app-current-weather
+      [cityWeather]="cityWeather"
+      [isFavorite]="isCurrentFavorite$ | async"
+      [unit]="unit$ | async"
+      (toggleBookmark)="onToggleBookmark()"
+    >
+    </app-current-weather>
+  </div>
+  <div *ngIf="!(loadingWeather$ | async) && errorWeather$ | async">
+    <h4 class="alert alert-danger">Error ao buscar dado desta cidade</h4>
+  </div>
+</div>

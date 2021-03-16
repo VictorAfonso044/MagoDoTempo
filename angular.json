@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Apitempo"
+    }
+  },
+  "defaultProject": "Apitempo",
+  "cli": {
+    "analytics": false
+  }
 }

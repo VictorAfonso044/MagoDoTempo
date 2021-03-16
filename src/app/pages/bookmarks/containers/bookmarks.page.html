@@ -1,0 +1,29 @@
+<div class="container-fluid ">
+  <div class="">
+    <app-cities-typeahead [formControl]="searchTypeaheadControl" [placeholder]="'Adicionar cidade aos favoritos'"></app-cities-typeahead>
+  </div>
+  <div class="bookmarks-container ">
+    <div class="">
+      <h3 class="">Favoritos</h3>
+
+      <div class="alert alert-info" *ngIf="!(bookmarks$ | async).length">Nenhum favorito adicionado</div>
+
+      <ul class="list-unstyled lista">
+
+        <li  *ngFor="let bookmark of bookmarks$ | async">
+
+          <button class="btn btn-outline-dark px-5" [routerLink]="['../details']"
+             [queryParams]="{lat: bookmark.coord.lat, lon: bookmark.coord.lon}">
+             {{ bookmark.name }}
+            </button>
+            <span class="material-icons xl"
+            (click)="removeBookmark(bookmark.id)">clear</span>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+
